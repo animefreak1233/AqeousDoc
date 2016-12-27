@@ -1,3 +1,6 @@
-# My Awesome Book
+# Preface
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+This book is aimed at people who want to understand the inner workings of Aqeous OS. It is #NOT# 
+
+
+
