@@ -48,3 +48,5 @@ extern ksetup
 ```
 _start is the entry point of our OS. The start of the code that GRUB will load.
 We first load the address of the bottom of the stack into the stack pointer `esp`. Then we declare an external function `ksetup()` this function does everything needed to set up the hardware, and then tranfers to `kernel_main()`, where the actual kernel code resides.
+  
+That concludes everything we have to say about the booting procedure and boot.s
