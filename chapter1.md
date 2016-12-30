@@ -55,6 +55,22 @@ extern ksetup
 
 `_start` is the entry point of our OS. The start of the code that GRUB will load.  
 We first load the address of the bottom of the stack into the stack pointer `esp`. Then we declare an external function `ksetup()` this function does everything needed to set up the hardware, and then tranfers to `kernel_main()`, where the actual kernel code resides.
+###boot_bc.s
+This is a backwards `boot.s` file clone that uses Multiboot v0.6. Use this only if you are unable to use Multiboot 2 v1.6. There isn't really anything else to this file.
+####Multiboot v0.6
+```
+	MAGIC equ 0x1BADB002
+	A_4K equ 1
+	MEM_INFO equ 2
+	FLAGS equ A_4K | MEM_INFO
+	CHECKSUM equ -(MAGIC + FLAGS)
+	ALIGN 4
+section .multiboot
+	DD MAGIC
+	DD FLAGS
+	DD CHECKSUM
+```
+It's similar to the previous file. The only difference is that there is no `HEADER_LENGTH` field, and there is a new `FLAGS` field, for more info, look up the documentation
 
 That concludes everything we have to say about the booting procedure and boot.s
 
